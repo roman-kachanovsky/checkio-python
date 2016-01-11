@@ -22,9 +22,12 @@ def bruteforce(count_of_symbols):
         54^14 = 1.792720718×10^24 combinations
         Over 2 million years to iterate all of them
     '''
-    # We use all latin letters plus ' ' and '!' symbols: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !'
-    # and got our list of combinations. Each of them have length = 14 like 'I love Python!' string.
-    list_of_combinatons = product(string.ascii_letters+' '+'!', repeat=count_of_symbols)
+    # We use all latin letters plus ' ' and '!' symbols: 
+    # 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !'
+    # and got our list of combinations. 
+    # Each of them have length = 14 like the 'I love Python!' string.
+    list_of_combinations = product(string.ascii_letters+' '+'!', 
+        repeat=count_of_symbols)
     
     # aaaaaaaaaaaaaa
     # aaaaaaaaaaaaab
@@ -33,7 +36,7 @@ def bruteforce(count_of_symbols):
 ​
     # Now try to find our phrase here!
     for c in [list('I love Python!'),]:         # Comment this line!
-    # for c in list_of_combinatons:             # Uncomment this line!
+    # for c in list_of_combinations:            # Uncomment this line!
         if is_correct_phrase(''.join(c)):
             return ''.join(c)
     return None
