@@ -70,17 +70,18 @@ Precondition:       All data is correct.
 from functools import reduce
 
 class Friends(object):
-    connections = []
+    connections = list()
     
     def __init__(self, connections):
-        if not isinstance(connections, (list, tuple)):
-            raise TypeError('Connections should be "list" instance')
-        if not len(connections):
-            raise IndexError('Count of connetions should be more than 0')
-        for c in connections:
-            if not isinstance(c, set):
-                raise TypeError('Each connection should be "set" instance')
-        self.connections = connections
+        # Some optional checks...
+        # if not isinstance(connections, (list, tuple)):
+        #     raise TypeError('Connections should be "list" instance')
+        # if not len(connections):
+        #     raise IndexError('Count of connetions should be more than 0')
+        # for c in connections:
+        #     if not isinstance(c, set):
+        #         raise TypeError('Each connection should be "set" instance')
+        self.connections = list(connections)
 
     def add(self, connection):
         if connection in self.connections:
@@ -90,7 +91,9 @@ class Friends(object):
             return True
 
     def remove(self, connection):
-        if connection in self.connections:
+        if not self.connections:
+            return False
+        elif connection in self.connections:
             self.connections.remove(connection)
             return True
         else:
@@ -102,5 +105,31 @@ class Friends(object):
         return set(listmerge(self.connections))
 
     def connected(self, name):
-        raise NotImplementedError
+        output = list()
+        for c in self.connections:
+            if name in c:
+                output.extend(c)
+                output.remove(name)
+        return set(output)
+
+# gyahun_dash's solution:
+class Friends(set):
+    def __init__(self, pairs=set()):
+        super().__init__(map(frozenset, pairs))
+​
+    def add(self, pair):
+        if pair in self: return False
+        super().add(frozenset(pair))
+        return True
+​
+    def remove(self, pair):
+        if pair not in self: return False
+        super().remove(pair)
+        return True
+​
+    def names(self):
+        return set().union(*self)
+​
+    def connected(self, name):
+        return Friends(filter({name}.issubset, self)).names() - {name}
         
