@@ -2,13 +2,16 @@
 
 For this mission, we will use the latin alphabet (A-Z). 
 You are given a text with latin letters and punctuation symbols. 
-You need to check if the sentence is a pangram or not. Case does not matter.
+You need to check if the sentence is a pangram or not. 
+Case does not matter.
 
 Input:              A text as a string.
 Output:             Whether the sentence is a pangram or not as a boolean.
-How it is used:     Pangrams have been used to display typefaces, test equipment, and develop skills in handwriting, 
+How it is used:     Pangrams have been used to display typefaces, 
+                    test equipment, and develop skills in handwriting, 
                     calligraphy, and keyboarding for ages.
-Precondition:       all(ch in (string.punctuation + string.ascii_letters + " ") for ch in text)
+Precondition:       all(ch in (string.punctuation + string.ascii_letters 
+                        + " ") for ch in text)
                     0 < len(text)
 '''
 
@@ -16,7 +19,8 @@ Precondition:       all(ch in (string.punctuation + string.ascii_letters + " ") 
 import string
 
 def check_pangram(text):
-    return set(string.ascii_lowercase) == set(''.join(filter(str.isalpha, text.lower())))
+    return set(string.ascii_lowercase) == set(''.join(filter(str.isalpha, 
+                                                                text.lower())))
 
 # dagger126's solution:
 from string import ascii_lowercase

@@ -2,20 +2,29 @@
 
 In this mission you should implement some boolean operations.
 
-You are given two boolean values x and y as 1 or 0 and you are given an operation name as described earlier. 
+You are given two boolean values x and y as 1 or 0 and you are given 
+an operation name as described earlier. 
 You should calculate the value and return it as 1 or 0.
 
-Input:              Three arguments. X and Y as 0 or 1. An operation name as a string.
+Input:              Three arguments. X and Y as 0 or 1. 
+                    An operation name as a string.
 Output:             The result as 1 or 0.
-How it is used:     Here you will learn how to work with boolean values and operators. 
+How it is used:     Here you will learn how to work with boolean 
+                    values and operators. 
                     You even get to think about numbers as booleans.
 Precondition:       x in (0, 1)
                     y in (0, 1)
-                    operation in ("conjunction", "disjunction", "implication", "exclusive", "equivalence")
+                    operation in ("conjunction", "disjunction", 
+                        "implication", "exclusive", "equivalence")
 '''
 
 # My solution:
-OPERATION_NAMES = ("conjunction", "disjunction", "implication", "exclusive", "equivalence")
+OPERATION_NAMES = ("conjunction", 
+    "disjunction", 
+    "implication", 
+    "exclusive", 
+    "equivalence")
+
 def boolean(x, y, operation):
     if (x in (0, 1)) and (y in (0, 1)):
         if operation in OPERATION_NAMES:

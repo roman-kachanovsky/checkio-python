@@ -1,9 +1,11 @@
 ''' 11. --- Count Inversions --- Simple
-You are given a sequence of unique numbers and you should count the number of inversions in this sequence.
+You are given a sequence of unique numbers and you should count 
+the number of inversions in this sequence.
 
 Input:              A sequence as a tuple of integers.
 Output:             The inversion number as an integer.
-How it is used:     In this mission you will get to experience the wonder of nested loops, that is of course, 
+How it is used:     In this mission you will get to experience 
+                    the wonder of nested loops, that is of course, 
                     if you don't use advanced algorithms.
 Precondition:       2 < len(sequence) < 200
                     len(sequence) == len(set(sequence))

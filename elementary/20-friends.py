@@ -1,17 +1,23 @@
 ''' 20. --- Friends --- Moderate
 
-The class "Friends" should contains names and the connections between them. 
-Names are represented as strings and are case sensitive. Connections are undirected, so if "sophia" 
+The class "Friends" should contains names and the connections 
+between them. Names are represented as strings and are case sensitive. 
+Connections are undirected, so if "sophia" 
 is connected with "nikola", then it's also correct in reverse.
 
 class Friends(connections)
-Returns a new Friends instance. "connections" is an iterable of sets with two elements in each. Each connection contains two names as strings. Connections can be repeated in the initial data, but inside it's stored once. Each connection has only two states - existing or not.
+Returns a new Friends instance. "connections" is an iterable of sets 
+with two elements in each. Each connection contains two names as strings. 
+Connections can be repeated in the initial data, but inside 
+it's stored once. Each connection has only two states - existing or not.
 
     >>> Friends(({"a", "b"}, {"b", "c"}, {"c", "a"}, {"a", "c"}))
     >>> Friends([{"1", "2"}, {"3", "1"}])
 
 add(connection)
-Add a connection in the instance. "connection" is a set of two names (strings). Returns True if this connection is new. Returns False if this connection exists already.
+Add a connection in the instance. "connection" is a set of two names 
+(strings). Returns True if this connection is new. Returns False 
+if this connection exists already.
 
     >>> f = Friends([{"1", "2"}, {"3", "1"}])
     >>> f.add({"1", "3"})
@@ -20,7 +26,9 @@ Add a connection in the instance. "connection" is a set of two names (strings). 
     True
 
 remove(connection)
-Remove a connection from the instance. "connection" is a set of two names (strings). Returns True if this connection exists. Returns False if this connection is not in the instance.
+Remove a connection from the instance. "connection" is a set 
+of two names (strings). Returns True if this connection exists. 
+Returns False if this connection is not in the instance.
 
     >>> f = Friends([{"1", "2"}, {"3", "1"}])
     >>> f.remove({"1", "3"})
@@ -29,7 +37,8 @@ Remove a connection from the instance. "connection" is a set of two names (strin
     False
 
 names()
-Returns a set of names. The set contains only names which are connected with somebody.
+Returns a set of names. The set contains only names which 
+are connected with somebody.
 
     >>> f = Friends(({"a", "b"}, {"b", "c"}, {"c", "d"}))
     >>> f.names()
@@ -40,7 +49,8 @@ Returns a set of names. The set contains only names which are connected with som
     {"a", "b", "c"}
 
 connected(name)
-Returns a set of names which is connected with the given "name". If "name" does not exist in the instance, then return an empty set.
+Returns a set of names which is connected with the given "name". 
+If "name" does not exist in the instance, then return an empty set.
 
     >>> f = Friends(({"a", "b"}, {"b", "c"}, {"c", "a"}))
     >>> f.connected("a")
@@ -56,13 +66,15 @@ Returns a set of names which is connected with the given "name". If "name" does 
     >>> f.connected("c")
     set()
 
-In this mission all data will be correct and you don't need to implement value checking.
+In this mission all data will be correct and you don't need 
+to implement value checking.
 
 Input:              Statements and expression with the Friends class.
 Output:             The behaviour as described.
 How it is used:     Here you will implement a class with mutable states. 
-                    This is not a simple structure with a couple of functions, 
-                    but object representation with more complex structure.
+                    This is not a simple structure with a couple 
+                    of functions, but object representation 
+                    with more complex structure.
 Precondition:       All data is correct.
 '''
 
@@ -73,14 +85,6 @@ class Friends(object):
     connections = list()
     
     def __init__(self, connections):
-        # Some optional checks...
-        # if not isinstance(connections, (list, tuple)):
-        #     raise TypeError('Connections should be "list" instance')
-        # if not len(connections):
-        #     raise IndexError('Count of connetions should be more than 0')
-        # for c in connections:
-        #     if not isinstance(c, set):
-        #         raise TypeError('Each connection should be "set" instance')
         self.connections = list(connections)
 
     def add(self, connection):
@@ -101,7 +105,6 @@ class Friends(object):
             
     def names(self):
         listmerge = lambda s: reduce(lambda d,el: d.extend(el) or d, s, [])
-        # return sorted(set(listmerge(self.connections)))
         return set(listmerge(self.connections))
 
     def connected(self, name):

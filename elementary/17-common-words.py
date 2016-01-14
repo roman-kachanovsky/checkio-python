@@ -1,7 +1,8 @@
 ''' 17. --- Common Words --- Simple
 
 Your function should find all of the words that appear in both strings. 
-The result must be represented as a string of words separated by commas in alphabetic order.
+The result must be represented as a string of words separated 
+by commas in alphabetic order.
 
 Input:              Two arguments as strings.
 Output:             The common words as a string.
