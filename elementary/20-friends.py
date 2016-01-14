@@ -116,20 +116,20 @@ class Friends(object):
 class Friends(set):
     def __init__(self, pairs=set()):
         super().__init__(map(frozenset, pairs))
-​
+
     def add(self, pair):
         if pair in self: return False
         super().add(frozenset(pair))
         return True
-​
+
     def remove(self, pair):
         if pair not in self: return False
         super().remove(pair)
         return True
-​
+
     def names(self):
         return set().union(*self)
-​
+
     def connected(self, name):
         return Friends(filter({name}.issubset, self)).names() - {name}
-        
+          

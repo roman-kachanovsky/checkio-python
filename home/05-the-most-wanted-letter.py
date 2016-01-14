@@ -34,7 +34,7 @@ def checkio(text):
 
 # bryukh's solution:
 import string
-​
+
 def checkio(text):
     text = text.lower()
     return max(string.ascii_lowercase, key=text.count)

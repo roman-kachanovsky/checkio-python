@@ -8,7 +8,7 @@ For example:
 Input:              A text as a string (unicode).
 Output:             The secret message as a string or an empty string.
 How it is used:     This is a simple exercise in working with strings: iterate, recognize and concatenate.
-Precondition:       0 < len(text) ≤ 1000
+Precondition:       0 < len(text) <= 1000
                     all(ch in string.printable for ch in text)
 '''
 

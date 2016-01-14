@@ -20,7 +20,7 @@ def check_pangram(text):
 
 # dagger126's solution:
 from string import ascii_lowercase
-​
+
 def check_pangram(text):
     return set(ascii_lowercase).issubset(set(text.lower()))
 
@@ -30,7 +30,3 @@ check_pangram = lambda text: len({x for x in text.lower() if x.isalpha()}) == 26
 # asa19's solution:
 def check_pangram(text):
     return not set('abcdefghijklmnopqrstuvwxyz') - set(text.lower())
-
-
-
-

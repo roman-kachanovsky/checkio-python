@@ -12,9 +12,9 @@ Let's look at a few examples:
 Input:              Two arguments. An array as a list of integers and a number as a integer.
 Output:             The result as an integer.
 How it is used:     This mission teaches you how to use basic arrays and indexes when combined with simple mathematics.
-Precondition:       0 < len(array) ≤ 10
-                    0 ≤ N
-                    all(0 ≤ x ≤ 100 for x in array)
+Precondition:       0 < len(array) <= 10
+                    0 <= N
+                    all(0 <= x <= 100 for x in array)
 '''
 
 # My solution:

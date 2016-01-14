@@ -39,7 +39,7 @@ checkio = lambda s: not(
 import re
 def checkio(data):
     return True if re.search("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$", data) and len(data) >= 10 else False
-​
+    
 # noname's solution:
 import re
 def checkio(data):

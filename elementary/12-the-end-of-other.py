@@ -8,7 +8,7 @@ For example:
 Input:              Words as a set of strings.
 Output:             True or False, as a boolean.
 How it is used:     Here you can learn about iterating through set type and string data type functions.
-Precondition:       2 ≤ len(words) < 30
+Precondition:       2 <= len(words) < 30
                     all(re.match(r"\A[a-z]{1,99}\Z", w) for w in words)
 '''
 

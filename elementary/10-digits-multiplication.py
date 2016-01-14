@@ -23,7 +23,7 @@ def checkio(number):
 # Cjkjvfnby's solution:
 from functools import reduce
 from operator import mul
-​
+
 def checkio(number):
     return reduce(mul, (int(x) for x in str(number) if x != '0'))
 

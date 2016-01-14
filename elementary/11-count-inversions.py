@@ -21,10 +21,11 @@ def count_inversion(sequence):
 
 # gyahun_dash's solution:
 import itertools as it
-​
+
 def count_inversion(sequence):
     return sum(x > y for x, y in it.combinations(sequence, 2))
 
 # bukebuer's solution:
 def count_inversion(sequence):
     return sum(sum(m<n for m in sequence[i+1:]) for i,n in enumerate(sequence))
+    

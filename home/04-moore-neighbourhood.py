@@ -14,7 +14,7 @@ How it is used:     As we mentioned in the beginning, this idea can be useful fo
                     board game algorithms. In addition, the same principles 
                     it can be useful for navigational software, or 
                     geographical surveying software.
-Precondition:       3 ≤ len(grid) ≤ 10
+Precondition:       3 <= len(grid) <= 10
                     all(len(grid[0]) == len(row) for row in grid)
 '''
 
@@ -73,12 +73,9 @@ def count_neighbours(grid, row, col):
 def count_neighbours(grid, row, col):
     rows = range(max(0, row - 1), min(row + 2, len(grid)))
     cols = range(max(0, col - 1), min(col + 2, len(grid[0])))
-​
     return sum(grid[r][c] for r in rows for c in cols) - grid[row][col]
 
 # gyahun_dash's solution:
 def count_neighbours(grid, row, col):
     rs, cs = [slice(max(0, x - 1), x + 2) for x in (row, col)]
-​
     return sum(e for r in grid[rs] for e in r[cs]) - grid[row][col]
-    

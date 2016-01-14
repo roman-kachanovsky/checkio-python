@@ -11,8 +11,8 @@ Input:              Two arguments. A text as a string (unicode for py2) and word
 Output:             The number of words in the text as an integer.
 How it is used:     Python is a useful and powerful language for text processing. 
                     This mission is only a simple example of the kind of text searching tools you could build.
-Precondition:       0 < len(text) ≤ 256
-                    all(3 ≤ len(w) and w.islower() and w.isalpha for w in words)
+Precondition:       0 < len(text) <= 256
+                    all(3 <= len(w) and w.islower() and w.isalpha for w in words)
 '''
 
 # My solution:

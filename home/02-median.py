@@ -18,8 +18,8 @@ How it is used:     The median has usage for Statistics and Probability theory,
                     If we average it out, we get $91,000. This is weird value and does nothing 
                     to show us the real picture. In this case the median would give to us 
                     more useful value and a better picture.
-Precondition:       1 < len(data) ≤ 1000
-                    all(0 ≤ x < 10 ** 6 for x in data)
+Precondition:       1 < len(data) <= 1000
+                    all(0 <= x < 10 ** 6 for x in data)
 '''
 
 # My solution:

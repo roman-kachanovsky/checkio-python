@@ -10,8 +10,8 @@ Input:              Two arguments. A number as string and a radix as an integer.
 Output:             The converted number as an integer.
 How it is used:     Here you will learn how to work with the various numeral systems and handle exceptions.
 Precondition:       re.match("\A[A-Z0-9]\Z", str_number)
-                    0 < len(str_number) ≤ 10
-                    2 ≤ radix ≤ 36
+                    0 < len(str_number) <= 10
+                    2 <= radix <= 36
 '''
 
 # My solution:

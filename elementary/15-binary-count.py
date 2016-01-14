@@ -7,7 +7,7 @@ For example: 5 = 0b101 contains two unities, so the answer is 2.
 Input:              A number as a positive integer.
 Output:             The quantity of unities in the binary form as an integer.
 How it is used:     How to convert a number to the binary form. It can be useful for Computer Science purposes.
-Precondition:       0 < number ≤ 232
+Precondition:       0 < number <= 232
 '''
 
 # My solution:

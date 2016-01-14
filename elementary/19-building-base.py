@@ -84,23 +84,23 @@ class Building:
 
 # gyahun_dash's soultion:
 from itertools import product
-​
+
 class Building(object): # W to E: width, N to S: depth
     def __init__(self, south, west, width, depth, height=10):
         self.south, self.west = south, west
         self.width, self.depth, self.height = width, depth, height
         self.north, self.east = south + depth, west + width
-​
+
     def corners(self):
         pairs = product(('south', 'north'), ('west', 'east'))
         return {'-'.join(p): [getattr(self, d) for d in p] for p in pairs}
-​
+
     def area(self):
         return self.width * self.depth
-​
+
     def volume(self):
         return self.width * self.depth * self.height
-​
+
     def __repr__(self):
         txt = 'Building({0.south}, {0.west}, {0.width}, {0.depth}, {0.height})'
         return txt.format(self)

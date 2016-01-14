@@ -9,7 +9,7 @@ You should write a function that will receive a positive integer and return:
 Input:              A number as an integer.
 Output:             The answer as a string.
 How it is used:     Here you can learn how to write the simplest function and work with if-else statements.
-Precondition:       0 < number ≤ 1000
+Precondition:       0 < number <= 1000
 '''
 
 # My solution:

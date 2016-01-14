@@ -11,7 +11,7 @@ Think about how to work with an arbitrary number of arguments.
 Input:              An arbitrary number of arguments as numbers (int, float).
 Output:             The difference between maximum and minimum as a number (int, float).
 How it is used:     Here you will learn about passing an undefined amount of arguments to functions.
-Precondition:       0 ≤ len(args) ≤ 20
+Precondition:       0 <= len(args) <= 20
                     all(-100 < x < 100 for x in args)
                     all(isinstance(x, (int, float)) for x in args)
 '''
