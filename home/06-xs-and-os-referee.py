@@ -1,7 +1,7 @@
 ''' 06. --- Xs and Os Referee --- Simple
 
 Tic-Tac-Toe, sometimes also known as Xs and Os, is a game for two 
-players (X and O) who take turns marking the spaces in a 3×3 grid. 
+players (X and O) who take turns marking the spaces in a 3*3 grid.
 The player who succeeds in placing three respective marks 
 in a horizontal, vertical, or diagonal rows (NW-SE and NE-SW) 
 wins the game.
@@ -24,3 +24,41 @@ How it is used:     The concepts in this task will help you when
 '''
 
 # My solution:
+def checkio(game_result):
+    grid = ['', '', '', '', '']
+    grid[0] = game_result[0][0] + game_result[1][1] + game_result[2][2]
+    grid[1] = game_result[0][2] + game_result[1][1] + game_result[2][0]
+    for line in game_result:
+        grid.append(line)
+        grid[2] += line[0]
+        grid[3] += line[1]
+        grid[4] += line[2]
+    if 'XXX' in grid:
+        return 'X'
+    elif 'OOO' in grid:
+        return 'O'
+    else:
+        return 'D'
+
+# DanielDou's solution:
+def checkio(board):
+    # First we put everything together into a single string
+    x = "".join(board)
+    
+    # Next we outline the 8 possible winning combinations. 
+    combos = ["012", "345", "678", "036", "147", "258", "048", "246"]
+    
+    # We go through all the winning combos 1 by 1 to see if there are any
+    # all Xs or all Os in the combos
+    for i in combos:
+        if x[int(i[0])] == x[int(i[1])] == x[int(i[2])] and x[int(i[0])] in "XO":
+            return x[int(i[0])]
+    return "D"
+
+# gyahun_dash's solution:
+def checkio(result):
+    rows = result
+    cols = map(''.join, zip(*rows))
+    diags = map(''.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
+    lines = rows + list(cols) + list(diags)
+    return 'X' if ('XXX' in lines) else 'O' if ('OOO' in lines) else 'D'
