@@ -19,6 +19,7 @@ How it is used:     This mission teaches you how to use basic
 Precondition:       0 < len(array) <= 10
                     0 <= N
                     all(0 <= x <= 100 for x in array)
+                    
 '''
 
 # My solution:
@@ -36,3 +37,10 @@ def index_power(array, n):
 # gyahun_dash's solution:
 def index_power(array, n):
     return array[n] ** n if n < len(array) else -1
+
+''' To remember:
+
+I can use try..except statement instead some checks of arguments,
+but I think my notation looks more readable.
+
+'''

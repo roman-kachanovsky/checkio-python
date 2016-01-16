@@ -14,11 +14,12 @@ How it is used:     Indexes and slices are important elements of coding
 Precondition:       0 <= len(array) <= 20
                     all(isinstance(x, int) for x in array)
                     all(-100 < x < 100 for x in array)
+                    
 '''
 
 # My solution:
 def checkio(array):
-    if len(array) == 0:
+    if not array: # (PEP8)
         return 0
     return sum(array[::2]) * array[len(array)-1]
 
@@ -29,3 +30,17 @@ def checkio(array):
 
 # aggelgian's solution:
 checkio=lambda x: sum(x[::2])*x[-1] if x else 0
+
+''' To remember:
+
+'if array:' statement is better and more clear than 'if len(array) != 0'
+
+I can use one-line notation for if, for, while statements if I have
+only one instruction.
+
+array[len(array)-1] == array[-1]
+
+Anonymous functions are used when I don't want to clutter of namespaces
+with unnecessary names of functions.
+
+'''

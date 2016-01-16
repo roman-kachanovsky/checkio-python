@@ -12,6 +12,7 @@ Output:             The answer as a string.
 How it is used:     Here you can learn how to write the simplest 
                     function and work with if-else statements.
 Precondition:       0 < number <= 1000
+
 '''
 
 # My solution:
@@ -28,4 +29,13 @@ def checkio(number):
 # panaro32's solution:
 def checkio(n):
     return 'Fizz' * (not n%3) + ' ' * (not n%15) + 'Buzz' * (not n%5) or str(n)
-    
+
+''' To remember:
+
+not X -> return True if X == 0 and return False if X != 0
+Then I can use 'if X:' statement instead 'if X != 0:'
+
+'foo' * True -> return 'foo'
+'foo' * False - > return '' because True is 1 and False is 0
+
+'''
