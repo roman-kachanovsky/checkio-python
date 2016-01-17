@@ -33,7 +33,7 @@ def checkio(n):
 ''' To remember:
 
 not X -> return True if X == 0 and return False if X != 0
-Then I can use 'if X:' statement instead 'if X != 0:'
+Then I can use 'if X:' expression instead 'if X != 0:'
 
 'foo' * True -> return 'foo'
 'foo' * False - > return '' because True is 1 and False is 0

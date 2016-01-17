@@ -12,6 +12,7 @@ Output:             The product of the digits as an integer.
 How it is used:     This task can teach you how to solve a problem 
                     with simple data type conversion.
 Precondition:       0 < number < 106
+
 '''
 
 # My solution:
@@ -36,3 +37,17 @@ def checkio(number):
     for d in str(number):
         res *= int(d) if int(d) else 1
     return res
+
+''' To remember:
+
+operator.mul is the multiplication operator: mul(a, b) == a * b
+
+functools.reduce() used for chain calculations.
+
+reduce(operation, data, default_value)
+>> reduce(lambda res, x: res * x, [1, 2, 3], 1)
+6 -> (((1 * 1) * 2) * 3), res is for intermediate result of multiplication
+>> reduce(lambda res, x: [x] + res, [1, 2, 3], [])
+[3, 2, 1] -> reversed list
+
+'''

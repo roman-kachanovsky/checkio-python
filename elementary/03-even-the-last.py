@@ -33,7 +33,7 @@ checkio=lambda x: sum(x[::2])*x[-1] if x else 0
 
 ''' To remember:
 
-'if array:' statement is better and more clear than 'if len(array) != 0'
+'if array:' sentence is better and more clear than 'if len(array) != 0'
 
 I can use one-line notation for if, for, while statements if I have
 only one instruction.

@@ -16,6 +16,7 @@ Precondition:       x in (0, 1)
                     y in (0, 1)
                     operation in ("conjunction", "disjunction", 
                         "implication", "exclusive", "equivalence")
+
 '''
 
 # My solution:
@@ -81,4 +82,23 @@ OPERATIONS = {"conjunction": and_,
 
 def boolean(x, y, operation):
     return OPERATIONS[operation](x, y)
-    
+
+''' To remember:
+
+x & y           --> x and y
+x | y           --> x or y
+(1 ^ x) | y     --> y or not x
+x ^ y           --> x ^ y
+x ^ y ^ 1       --> x == y
+
+Dictionary can contains operations and even functions as values.
+f.e.:
+def arithmetic(x, y, func):
+    def foo(x, y):
+        return x * y
+    d = {'foo': foo(x, y), 'bar': x + y}
+    return d[func]
+
+Module 'operator' contains some interesting operators.
+
+'''

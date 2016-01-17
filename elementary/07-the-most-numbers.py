@@ -19,6 +19,7 @@ How it is used:     Here you will learn about passing
 Precondition:       0 <= len(args) <= 20
                     all(-100 < x < 100 for x in args)
                     all(isinstance(x, (int, float)) for x in args)
+
 '''
 
 # My solution:
@@ -31,3 +32,10 @@ def checkio(*args):
 # madmanbob's solution:
 def checkio(*args):
     return max(args) - min(args) if args else 0
+
+''' To remember:
+
+I can use 'if..else' like a generator expression's filter in any sentence.
+This is one-line notation for 'if..else'.
+
+'''

@@ -13,6 +13,7 @@ How it is used:     This teaches you how to work with strings
 Precondition:       The input contains words and/or numbers. There are 
                     no mixed words (letters and digits combined).
                     0 < len(words) < 100
+
 '''
 
 # My solution:
@@ -35,3 +36,10 @@ def checkio(words):
         succ = (succ + 1) * word.isalpha()
         if succ == 3: return True
     else: return False
+
+''' To remember:
+
+.issomething() as 1 or 0 in arithmetic expression.
+Looks interesting, but I think 'if' statement is more readable.
+
+'''
