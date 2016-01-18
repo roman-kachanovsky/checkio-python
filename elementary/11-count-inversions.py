@@ -30,4 +30,16 @@ def count_inversion(sequence):
 # bukebuer's solution:
 def count_inversion(sequence):
     return sum(sum(m<n for m in sequence[i+1:]) for i,n in enumerate(sequence))
+
+''' To remember:
+
+itertools.combinations(iterable, r) - Return r length subsequences of 
+elements from the input iterable.
+
+>> combinations('ABCD', 2)
+AB AC AD BC BD CD
+>> combinations(range(4), 3)
+012 013 023 123
+
+'''
     

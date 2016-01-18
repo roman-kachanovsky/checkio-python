@@ -34,3 +34,13 @@ def checkio(words):
 # panaro32's solution:
 def checkio(s):
     return any(map(lambda x: any(map(x.endswith,s-set([x]))),s))
+
+''' To remember:
+
+PEP8 recommends using of .startswith() and .endswith() for checking
+prefix and postfix instead slices.
+
+if s.startswith('abc'):     # good
+if s[:3] == 'abc':          # bad
+
+'''

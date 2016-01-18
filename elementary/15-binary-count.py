@@ -23,3 +23,12 @@ def checkio(number):
 
 # veky's solution:
 checkio=lambda n:bin(n).count('1')
+
+''' To remember:
+
+>> type(bin(n))
+<class 'str'>
+
+Function str.count('abc') calculates count of included substrings.
+
+'''

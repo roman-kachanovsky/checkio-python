@@ -34,3 +34,11 @@ check_pangram = lambda text: len({x for x in text.lower() if x.isalpha()}) == 26
 # asa19's solution:
 def check_pangram(text):
     return not set('abcdefghijklmnopqrstuvwxyz') - set(text.lower())
+
+''' To remember:
+
+.issubset() - check if first set fully is in second set.
+
+I may use subtraction operator (-) for two or more sets.
+
+'''

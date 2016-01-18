@@ -53,7 +53,7 @@ def safe_pawns(pawns):
 # Pouf's solution:
 def safe_pawns(pawns):
     safePawns = 0
-    for pawn in pawns: # here may use 'for col, row in pawns:'
+    for pawn in pawns:
         col = pawn[0]
         row = pawn[1]
 
@@ -95,5 +95,8 @@ for n, m in [[1, 2], [3, 4], [5, 6]]:
 map(func, [], ...)
 >> map(lambda x, y: x + y, [1, 2, 3], [4, 5, 6])
 [5, 7, 9]
+
+any(iterable) - Return True if any element of the iterable is true. 
+If the iterable is empty, return False.
 
 '''

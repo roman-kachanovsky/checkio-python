@@ -35,3 +35,16 @@ def days_diff(date1, date2):
 def days_diff(date1, date2):
     from datetime import date
     return abs(date(*date1) - date(*date2)).days
+
+''' To remember:
+
+def foo(*args, **kwargs):
+    print(*args, **kwargs)
+
+>> foo(1, 2, 3, a=1, b=2, c=3)
+(1, 2, 3)                   -> *args
+{'a': 1, 'b': 2, 'c': 3}       -> **kwargs
+
+If I send arg with * it will be unwrapped.
+
+'''
