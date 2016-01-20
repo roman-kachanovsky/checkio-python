@@ -26,53 +26,69 @@ Precondition:       len(network) <= 45
 
 # My solution:
 def check_connection(network, first, second):
-    pairs = [[x for x in y.split('-')] for y in network]
-    nodes = set([x for y in pairs for x in y])
+    # Get pairs of nodes
+    pairs = [[x for x in y.split('-')] for y in network]    
+    # Get list of nodes
+    nodes = set([x for y in pairs for x in y])              
+    # Set dict to checking visited nodes
+    visited_nodes = {k: False for k in nodes}               
+    # Create empty list of adjacency
     graph = {k: [] for k in nodes}
+    # Fill it
     for k in graph.keys():
         for p in pairs:
-            if k == p[0]:
-                graph[k] = p
+            if k in p:
+                graph[k].append(p[0]) if k != p[0] else graph[k].append(p[1])
+    # Here I'm walking on graph and checking each visited node
+    def find_path(g, n):
+        # nodes_c[n] = count
+        visited_nodes[n] = True
+        for k in g[n]:
+            if not visited_nodes[k]:
+                find_path(g, k)
 
-    print(graph)
+    # I can calculate count of groups and mark each node by group number
+    # nodes_c = {k: -1 for k in nodes}
+    # count = 0
+    # for k in graph.keys():
+    #     if not visited_nodes[k]:
+    #         find_path(graph, k)
+    #         count += 1
 
-    if not graph[first] and not graph[second]:
-        return False
+    find_path(graph, first)
+    # Return True if second node is visited
+    return visited_nodes[second]
 
-    # def find_path(g, f, s, path=[]):
-    #     path = path + [f]
-    #     if not (f == s):
-    #         if f in g:
-    #             for node in g[f]:
-    #                 new_path = find_path(g, node, s, path)
-    #                 if new_path:
-    #                     return True
-    #     return False
+# gyahun_dash's solution:
+from itertools import chain
 
-    # return find_path(graph, first, second)
+def check_connection(shakehands, me, you):
+    hands = {tuple(pair.split('-')) for pair in shakehands}
+    amigos = {me}
 
+    while amigos != set():
+        pairs = {pair for pair in hands if any(one in pair for one in amigos)}
+        amigos = set(chain(*pairs)) - amigos
+        if you in amigos: return True
+        hands -= pairs
 
-if __name__ == '__main__':
-    #These "asserts" using only for self-checking and not necessary for auto-testing
-    # assert check_connection(
-    #     ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
-    #      "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
-    #     "scout2", "scout3") == True, "Scout Brotherhood"
-    # assert check_connection(
-    #     ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
-    #      "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
-    #     "super", "scout2") == True, "Super Scout"
-    # assert check_connection(
-    #     ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
-    #      "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
-    #     "dr101", "sscout") == False, "I don't know any scouts."
+    return False
 
-    print(check_connection(
-        ("dr101-mr99", "mr99-out00", "dr101-out00", "scout1-scout2",
-         "scout3-scout1", "scout1-scout4", "scout4-sscout", "sscout-super"),
-        "scout2", "scout3"))
+# Sim0000's solution:
+def check_connection(network, first, second):
+    setlist = []
+    for connection in network:
+        s = ab = set(connection.split('-'))
+        # unify all set related to a, b
+        for t in setlist[:]: # we need to use copy
+            if t & ab:       # check t include a, b
+                s |= t
+                setlist.remove(t)
+        setlist.append(s)    # only s include a, b
+    return any(set([first, second]) <= s for s in setlist)
 
 ''' To remember:
 
+I'll check it later
 
 '''
