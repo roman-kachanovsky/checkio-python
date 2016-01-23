@@ -47,3 +47,11 @@ def checkio(text):
 # veky's solution:
 from string import ascii_lowercase as letters
 checkio = lambda text: max(letters, key=text.lower().count)
+
+''' To remember:
+
+max(string.ascii_lowercase, key=text.count) - Letter from 
+string.ascii_lowercase sends to text.count() as argument and in
+result I have list of counts of letters. Then I can calculate max value.
+
+'''

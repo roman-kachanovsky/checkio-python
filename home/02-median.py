@@ -46,3 +46,9 @@ def checkio(data):
     data.sort()
     med = data[off] + data[-(off + 1)]
     return med / 2
+
+''' To remember:
+
+List contains own sort() function.
+
+'''

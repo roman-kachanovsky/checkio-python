@@ -52,8 +52,9 @@ def check_connection(network, first, second):
     # count = 0
     # for k in graph.keys():
     #     if not visited_nodes[k]:
-    #         find_path(graph, k)
     #         count += 1
+    #         nodes_c[k] = count
+    #         find_path(graph, k)
 
     find_path(graph, first)
     # Return True if second node is visited
@@ -89,6 +90,6 @@ def check_connection(network, first, second):
 
 ''' To remember:
 
-I'll check it later
+I played with graph more in the SimpleGraph class.
 
 '''

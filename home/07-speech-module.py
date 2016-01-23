@@ -78,3 +78,20 @@ def checkio(number):
     n = number % (10 if n > 1 else 20)
     t += [(FIRST_TEN+SECOND_TEN)[n-1]] if n > 0 else []
     return ' '.join(t)
+
+''' To remember:
+
+enumerate(iterable, start=0) - Return an enumerate object. Iterable 
+must be a sequence, an iterator, or some other object 
+which supports iteration.
+
+>> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+>> list(enumerate(seasons))
+[(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+>> list(enumerate(seasons, start=1))
+[(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+
+>> dict([(1, 2), (3, 4)], (5, 6), ...)
+{1: 2, 3: 4, 5: 6, ...}
+
+'''

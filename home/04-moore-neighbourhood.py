@@ -82,3 +82,18 @@ def count_neighbours(grid, row, col):
 def count_neighbours(grid, row, col):
     rs, cs = [slice(max(0, x - 1), x + 2) for x in (row, col)]
     return sum(e for r in grid[rs] for e in r[cs]) - grid[row][col]
+
+''' To remember:
+
+slice() - representing the set of indices specified 
+by range(start, stop, step)
+
+f.e.:
+>> a = [1, 2, 3, 4, 5, 6, 7, 8]
+[1, 2, 3, 4, 5, 6, 7, 8]
+>> sl = slice(2, 5)
+slice(2, 5, None)
+>> a[sl]
+[3, 4, 5]
+
+'''

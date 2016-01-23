@@ -52,3 +52,14 @@ def checkio(data):
     if not re.search('[A-Z]', data): return False
     if not re.search('[0-9]', data): return False
     return True
+
+''' To remember:
+
+,isdigit(),
+.isaplha(),
+.islower(),
+.isupper() - built in str function
+
+TODO: I should read more about regular exprressions.
+
+'''

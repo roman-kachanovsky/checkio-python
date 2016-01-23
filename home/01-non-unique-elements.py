@@ -26,3 +26,9 @@ def checkio(data):
 
 # veky's solution:
 checkio=lambda d:[x for x in d if d.count(x)>1]
+
+''' To remember:
+
+Yep, I still haven't used anonymous functions :(
+
+'''

@@ -62,3 +62,13 @@ def checkio(result):
     diags = map(''.join, zip(*[(r[i], r[2 - i]) for i, r in enumerate(rows)]))
     lines = rows + list(cols) + list(diags)
     return 'X' if ('XXX' in lines) else 'O' if ('OOO' in lines) else 'D'
+
+''' To remember:
+
+zip() - Make an iterator that aggregates elements from 
+each of the iterables.
+
+>> zip('ABCD', 'xy')
+Ax By
+
+'''
