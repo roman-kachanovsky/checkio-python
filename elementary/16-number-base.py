@@ -29,3 +29,25 @@ def checkio(str_number, radix):
 def checkio(*a):
     try: return int(*a)
     except ValueError: return -1
+
+''' To remember:
+
+Argument unpacking: *args, **kwargs
+
+f.e.:
+def foo(x, y, z):
+    print('{0} {1} {2}'.format(x, y, z))
+
+def bar(*args):
+    args = list(args) # Convert args tuple to a list
+    args[0] = 'Hello'
+    args[1] = 'awesome'
+    foo(*args)
+
+>> bar('Bye', 'cruel', 'world!')
+Hello awesome world!
+
+**kwargs have the same behaviour, except that in this case it applies 
+to keyword arguments, and kwargs turns out to be a dict.
+
+'''

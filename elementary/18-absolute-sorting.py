@@ -27,3 +27,9 @@ def checkio(numbers_array):
 
 # veky's solution:
 checkio=lambda n:sorted(n,key=abs)
+
+''' To remember:
+
+Anonymous function again...
+
+'''

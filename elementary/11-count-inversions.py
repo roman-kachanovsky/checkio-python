@@ -1,4 +1,5 @@
 ''' 11. --- Count Inversions --- Simple
+
 You are given a sequence of unique numbers and you should count 
 the number of inversions in this sequence.
 

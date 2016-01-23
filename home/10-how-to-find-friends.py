@@ -32,7 +32,7 @@ def check_connection(network, first, second):
     nodes = set([x for y in pairs for x in y])              
     # Set dict to checking visited nodes
     visited_nodes = {k: False for k in nodes}               
-    # Create empty list of adjacency
+    # Create empty list of adjacencies
     graph = {k: [] for k in nodes}
     # Fill it
     for k in graph.keys():

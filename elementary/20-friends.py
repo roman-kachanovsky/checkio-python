@@ -135,4 +135,19 @@ class Friends(set):
 
     def connected(self, name):
         return Friends(filter({name}.issubset, self)).names() - {name}
-          
+
+''' To remember:
+
+set - mutable, frosenset - immutable
+
+.union() or | opreator - merge of two or more sets
+
+filter() can get a function as an argument and a set of values for this
+function. filter() will return values for which func(value) is True.
+It's iterable object.
+
+f.e.:
+>>> filter(lambda x: x < 5, [10, 4, 2, 8]) 
+[4, 2] # same as [x for x in [10, 4, 2, 8] if x < 5]
+
+'''

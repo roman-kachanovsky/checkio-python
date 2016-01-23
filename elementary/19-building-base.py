@@ -121,3 +121,73 @@ class Building(object): # W to E: width, N to S: depth
         txt = 'Building({0.south}, {0.west}, {0.width}, {0.depth}, {0.height})'
         return txt.format(self)
         
+''' To remember:
+
+I can declare class properties in the __init__ "magic" method.
+
+Other methods:
+__new__(cls, [..)       - First called method, when I create a new 
+                        instance. It's used fairly rarely. Usually in 
+                        an immutable classes.
+__init__(self, [..)     - Itinitializer.
+__del__(self)           - Destructor. It doesn’t implement behavior 
+                        for the statement del x. It calls when
+                        GC destroys this object.
+
+__eq__(self, other)     - Defines behavior for the equality operator ==
+__ne__(self, other)     - Defines behavior for the inequality operator !=
+__lt__(self, other)     - ... less-than operator <
+__gt__(self, other)     - ... greater-than operator >
+__le__(self, other)     - ... less-than-or-equal-to operator <=
+__ge__(self, other)     - ... greater-than-or-equal-to operator >=
+
+__pos__(self), 
+__neg__(self)           - Behavior for unary +/-
+__abs__(self)           - Behavior for built in abs()
+__invert__(self)        - Behavior for ~
+__round__(self, n)      - Behavior for round(), n is the number of
+                        decimal places to round to.
+__floor__(self)         - Behavior for math.floor(), rounding down to
+                        the nearest integer.
+__ceil__(self)          - Behavior for math.ceil(), rounding up to
+                        nearest integer.
+__trunc__(self)         - Behavior for math.trunc(), truncating to
+                        an integer
+
+__add__(self, other),
+__sub__(self, other),
+__mul__(self, other)        - Binary operators +/-/*
+__floordiv__(self, other)   - Integer division using //
+__div__(self, other)        - Division using /
+... __mod__, __divmod__, __pow__, __lshift__, __rshift__,
+__and__, __or__, __xor__
+
+__iadd__,
+__isub__,
+__imul__,
+...         - +=/-=/*=/... operators
+
+__int__,
+__long__,
+__float__,
+...         - Type conversion magic methods
+
+__str__(self)   - str() or print()
+__repr__(self)  - repr()
+__hash__(self)  - hash(), has to return an integer and its result is used
+                for quick key comparison in dictionaries. Live by the
+                following rule: a ==b implies hash(a) == hash(b)
+__bool__(self)   - bool()
+__dir__(self)   - dir(), should return a list of attributes for the user
+__getattr__,
+__setattr__,
+__delattr__     - f.e. I may check values before changing of attributes
+
+__len__(self)   - len()
+__getitem__(self, key),
+__setitem__(self, key),
+__delitem__(self, key)  - Behavior like d['key'] in dictionaries
+__iter__(self)  - Shoul return an iterator for the container.
+
+
+'''

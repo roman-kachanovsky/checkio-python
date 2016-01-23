@@ -22,3 +22,9 @@ def checkio(first, second):
     first_set = set(first.split(","))
     second_set = set(second.split(","))
     return ",".join(sorted(first_set & second_set))
+
+''' To remember:
+
+& - is the same as set().intersection(set())
+
+'''
