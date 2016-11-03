@@ -67,4 +67,4 @@ env.config
 
 # SublimeText
 *.sublime-*
-/backup/
+backup/
