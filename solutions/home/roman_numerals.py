@@ -1,4 +1,4 @@
-""" 02. --- Roman Numerals --- Moderated
+""" 02. --- Roman Numerals --- Moderate
 
 Roman numerals come from the ancient Roman numbering system.
 They are based on specific letters of the alphabet which are combined
