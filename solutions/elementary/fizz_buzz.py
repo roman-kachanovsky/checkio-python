@@ -29,4 +29,3 @@ def my_solution(number):
 
 def panaro32_solution(n):
     return 'Fizz' * (not n % 3) + ' ' * (not n % 15) + 'Buzz' * (not n % 5) or str(n)
-
