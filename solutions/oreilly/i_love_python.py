@@ -36,8 +36,9 @@ def my_solution():
         list_of_combinations = [list('I love Python!'), ]  # TODO: Comment this line for true search
 
         for c in list_of_combinations:
-            if is_correct_phrase(''.join(c)):
-                return ''.join(c)
+            phrase = ''.join(c)
+            if is_correct_phrase(phrase):
+                return phrase
         return None
 
     return bruteforce(14)
