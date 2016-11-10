@@ -1,4 +1,4 @@
-""" 03. --- Pawn Brotherhood --- Simple
+""" --- Pawn Brotherhood --- Simple
 
 Chess is a two-player strategy game played on a checkered game board 
 laid out in eight rows (called ranks and denoted with numbers 1 to 8) 

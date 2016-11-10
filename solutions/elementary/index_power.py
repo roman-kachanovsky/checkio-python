@@ -1,4 +1,4 @@
-""" 02. --- Index Power --- Elementary
+""" --- Index Power --- Elementary
 
 You are given an array with positive numbers and a number N. 
 You should find the N-th power of the element in the array 

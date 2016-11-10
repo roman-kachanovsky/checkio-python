@@ -1,4 +1,4 @@
-""" 06. --- Ghost Age ---  Simple
+""" --- Ghost Age ---  Simple
 
 Nicola takes a moment to study the ghosts. He is trying to think
 up a new method to determine just how old these ghosts are.

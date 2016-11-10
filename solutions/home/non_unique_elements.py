@@ -1,4 +1,4 @@
-""" 01. --- Non-unique Elements --- Elementary
+""" --- Non-unique Elements --- Elementary
 
 You are given a non-empty list of integers (X). 
 For this task, you should return a list consisting of only 

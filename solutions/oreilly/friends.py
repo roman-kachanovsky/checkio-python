@@ -1,4 +1,4 @@
-""" 07. --- Friends ---  Moderate
+""" --- Friends ---  Moderate
 
 The class "Friends" should contains names and the connections
 between them. Names are represented as strings and are case sensitive.

@@ -1,4 +1,4 @@
-""" 09. --- Number Base --- Simple
+""" --- Number Base --- Simple
 
 You are given a positive number as a string along with the radix for it. 
 Your function should convert it into decimal form. The radix is less 

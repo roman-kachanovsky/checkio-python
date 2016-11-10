@@ -1,4 +1,4 @@
-""" 05. --- Three words --- Elementary
+""" --- Three words --- Elementary
 
 You are given a string with words and numbers separated
 by whitespaces (one space). The words contains only letters.

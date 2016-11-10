@@ -1,4 +1,4 @@
-""" 01. --- Building Base ---  Simple
+""" --- Building Base ---  Simple
 
 Because all the buildings in the city are rectangular and their walls
 are parallel to the streets, we can define any building using only

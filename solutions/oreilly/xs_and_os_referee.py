@@ -1,4 +1,4 @@
-""" 05. --- Xs and Os Referee ---  Simple
+""" --- Xs and Os Referee ---  Simple
 
 Tic-Tac-Toe, sometimes also known as Xs and Os, is a game for two
 players (X and O) who take turns marking the spaces in a 3*3 grid.

@@ -1,4 +1,4 @@
-""" 08. --- Digits Multiplication --- Elementary
+""" --- Digits Multiplication --- Elementary
 
 You are given a positive integer. Your function should calculate 
 the product of the digits excluding any zeroes.

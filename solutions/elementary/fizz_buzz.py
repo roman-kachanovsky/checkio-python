@@ -1,4 +1,4 @@
-""" 01. --- Fizz Buzz --- Elementary
+""" --- Fizz Buzz --- Elementary
 
 You should write a function that will receive a positive integer 
 and return:

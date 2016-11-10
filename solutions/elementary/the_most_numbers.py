@@ -1,4 +1,4 @@
-""" 06. --- The Most Numbers --- Elementary
+""" --- The Most Numbers --- Elementary
 
 You are given an array of numbers (floats). You should find 
 the difference between the maximum and minimum element. 

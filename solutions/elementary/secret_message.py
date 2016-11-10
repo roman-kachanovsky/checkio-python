@@ -1,4 +1,4 @@
-""" 04. --- Secret Message --- Elementary
+""" --- Secret Message --- Elementary
 
 You are given a chunk of text. Gather all capital letters in one word
 in the order that they appear in the text.

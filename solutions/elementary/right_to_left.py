@@ -1,4 +1,4 @@
-""" 07. --- Right to Left --- Elementary
+""" --- Right to Left --- Elementary
 
 You are given a sequence of strings. You should join these strings 
 into chunk of text where the initial 

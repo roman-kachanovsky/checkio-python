@@ -1,4 +1,4 @@
-""" 10. --- Absolute sorting --- Simple
+""" --- Absolute sorting --- Simple
 
 The array (a tuple) has various numbers. You should sort it, but sort it 
 by absolute value in ascending order. 

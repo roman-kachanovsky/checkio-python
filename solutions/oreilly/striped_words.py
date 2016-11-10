@@ -1,4 +1,4 @@
-""" 04. --- Striped Words ---  Simple
+""" --- Striped Words ---  Simple
 
 The alphabet contains both vowel and consonant letters
 (yes, we divide the letters).

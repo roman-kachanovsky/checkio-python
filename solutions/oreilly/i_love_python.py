@@ -1,4 +1,4 @@
-""" 01. --- I Love Python ---  Elementary
+""" --- I Love Python ---  Elementary
 
 Let's write an essay in python code which will explain
 why you love python (if you don't love it, when we will make

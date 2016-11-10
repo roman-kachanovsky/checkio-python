@@ -1,4 +1,4 @@
-""" 03. --- Days Between ---  Simple
+""" --- Days Between ---  Simple
 
 You are given two dates as tuples with three numbers -
 year, month and day.

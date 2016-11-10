@@ -1,4 +1,4 @@
-""" 02. --- Median ---  Elementary
+""" --- Median ---  Elementary
 
 A median is a numerical value separating the upper half
 of a sorted array of numbers from the lower half. In a list

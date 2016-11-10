@@ -1,4 +1,4 @@
-""" 03. --- Even the last --- Elementary
+""" --- Even the last --- Elementary
 
 You are given an array of integers. You should find the sum of the 
 elements with even indexes (0th, 2nd, 4th...) then multiply this summed 

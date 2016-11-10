@@ -1,4 +1,4 @@
-""" 05. --- Open Labyrinth ---  Challenging
+""" --- Open Labyrinth ---  Challenging
 
 The labyrinth has no walls, but bushes surround the path on each side.
 If a players move into a bush, they lose. The labyrinth is presented as

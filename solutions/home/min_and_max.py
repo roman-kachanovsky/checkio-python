@@ -1,4 +1,4 @@
-""" 04. --- Min and Max --- Moderate
+""" --- Min and Max --- Moderate
 
 In this mission you should write you own py3 implementation
 (but you can use py2 for this) of the built-in functions min and max.
