@@ -31,6 +31,7 @@ Precondition:       The text contains only ASCII symbols.
 
 VOWELS = 'AEIOUY'
 CONSONANTS = 'BCDFGHJKLMNPQRSTVWXZ'
+PUNCTUATION = ',.!?'
 
 
 def my_solution(text):
@@ -52,5 +53,41 @@ def my_solution(text):
     return sum(result)
 
 
-# TODO: Investigate most clear solution here
-# https://py.checkio.org/mission/striped-words/publications/review/clear/
+def rrrq_solution(text):
+    text = text.upper()
+    for c in PUNCTUATION:
+        text = text.replace(c, " ")
+    for c in VOWELS:
+        text = text.replace(c, "v")
+    for c in CONSONANTS:
+        text = text.replace(c, "c")
+
+    words = text.split(" ")
+
+    count = 0
+    for word in words:
+        if len(word) > 1 and word.isalpha():
+            if word.find("cc") == -1 and word.find("vv") == -1:
+                count += 1
+
+    return count
+
+
+def petrushev_solution(text):
+    from string import punctuation
+
+    for p in punctuation:
+        text = text.replace(p, ' ')
+
+    cnt = 0
+    for token in text.split(' '):
+        if len(token) < 2:
+            continue
+        token = token.upper()
+        outer = set(token[::2])
+        inner = set(token[1::2])
+        if (outer.issubset(VOWELS) and inner.issubset(CONSONANTS)) or \
+                (inner.issubset(VOWELS) and outer.issubset(CONSONANTS)):
+            cnt += 1
+
+        return cnt
