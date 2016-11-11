@@ -1,4 +1,4 @@
-""" --- The Angles of a Triangle --- Simple
+""" --- The Angles of a Triangle --- Elementary
 
 You are given the lengths for each side on a triangle.
 You need to find all three angles for this triangle. If the given side
