@@ -44,5 +44,9 @@ def my_solution(tree):
     return True
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/wrong-family/publications/review/clear/
+def tom_tom_solution(tree):
+    fathers, sons = zip(*tree)
+    fathers_set, sons_set = set(fathers), set(sons)
+    return (all(father != son for father, son in tree) and
+            len(fathers_set - sons_set) == 1 and
+            len(sons) == len(sons_set))
