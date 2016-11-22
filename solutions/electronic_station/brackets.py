@@ -51,5 +51,12 @@ def my_solution(expression):
     return not stack
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/brackets/publications/review/clear/
+def veky_solution(data):
+    stack = ['']
+    brackets = {'(': ')', '[': ']', '{': '}'}
+    for c in data:
+        if c in brackets:
+            stack.append(brackets[c])
+        elif c in brackets.values() and c != stack.pop():
+            return False
+    return stack == [""]
