@@ -56,5 +56,28 @@ def my_solution(opacity):
     return 0
 
 
-# TODO: Investigate most clear solution here
-# https://py.checkio.org/mission/ghosts-age/publications/review/clear/
+def pouf_solution(B00):
+    BO0, B0O, BOO = 1, 1, 0
+    while B00 != 10000:
+        BOO += 1
+        if BOO == B0O:
+            B00 += B0O
+            BO0, B0O = B0O, BO0+B0O
+        else:
+            B00 -= 1
+    return BOO
+
+
+def faibbus_solution(tip):
+    MAGIC = (lambda x: x[0] + x[3] * x[4])(list(map(ord, 'mAGIC')))
+    MORE = (lambda x: x[4] - x[1])(list(map(ord, 'mAGIC')))
+
+    spells = [True] + [False] * (MAGIC)
+    this, that = 0, 1
+    while that <= MAGIC:
+        spells[that] = True
+        this, that = that, this + that
+    cut_fingers = [MORE * MAGIC]
+    for toad in range(MORE // MORE, MAGIC + MORE // MORE):
+        cut_fingers = cut_fingers + [cut_fingers[-1] + (-toad if spells[toad] else MORE // MORE)]
+    return cut_fingers.index(tip)
