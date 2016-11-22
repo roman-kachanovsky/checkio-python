@@ -41,5 +41,13 @@ def my_solution(a, b, c):
     return angles
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/triangle-angles/publications/review/clear/
+def bryukh_solution(a, b, c):
+    from math import acos, degrees
+
+    if a + b <= c or a + c <= b or b + c <= a:
+        return [0, 0, 0]
+
+    find_angle = lambda s1, s2, so: int(round(
+        degrees(acos((s1 ** 2 + s2 ** 2 - so ** 2) / (2 * s1 * s2))), 0
+    ))
+    return sorted([find_angle(a, b, c), find_angle(a, c, b), find_angle(b, c, a)])
