@@ -28,5 +28,11 @@ def my_solution(data):
     return eval('+'.join((s % tuple(data)).split()))
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/restricted-sum/publications/review/clear/
+def ciel_solution(data):
+    if len(data) == 0: return 0
+    return data[0] + ciel_solution(data[1:])
+
+
+def erik_white_2014_solution(data):
+    d = map(str, data)
+    return eval('+'.join(d))
