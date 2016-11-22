@@ -35,5 +35,5 @@ def my_solution(first_word, second_word):
     return first_word == second_word
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/verify-anagrams/publications/review/clear/
+def panaro32_solution(a, b):
+    return sorted(a.lower().replace(' ', '')) == sorted(b.lower().replace(' ', ''))
