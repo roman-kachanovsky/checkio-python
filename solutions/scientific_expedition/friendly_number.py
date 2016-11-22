@@ -54,7 +54,8 @@ Precondition:       1 < base <= 10**32
 """
 
 
-def my_solution(number, base=1000, decimals=0, suffix='', powers=('', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'), ):
+def my_solution(number, base=1000, decimals=0, suffix='',
+                powers=('', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'), ):
     is_negative = number < 0
     rounded_number = abs(number)
     counter = 0
@@ -63,10 +64,21 @@ def my_solution(number, base=1000, decimals=0, suffix='', powers=('', 'k', 'M', 
         rounded_number = float(rounded_number) / base
         counter += 1
 
-    str_number = '{1:.{0}f}'.format(decimals, round(rounded_number, decimals)) if decimals else str(int(rounded_number))
+    str_number = '{1:.{0}f}'.format(
+        decimals,
+        round(rounded_number, decimals)) if decimals else str(int(rounded_number))
     str_number = '-' + str_number if is_negative else str_number
     return str_number + powers[counter] + suffix
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/friendly-number/publications/review/clear/
+def sim0000_solution(number, base=1000, decimals=0, suffix='',
+                     powers=('', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'), ):
+    # At first, decompose the number to value and exponent.
+    e = 0
+    while e + 1 < len(powers) and abs(number) >= base ** (e + 1):
+        e += 1
+    number /= base ** e
+    # Then round it.
+    number = round(number, decimals) if decimals else int(number)
+    # At last, Format it.
+    return '{:.0f}'.replace('0', str(decimals)).format(number) + powers[e] + suffix
