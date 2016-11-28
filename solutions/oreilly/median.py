@@ -30,8 +30,8 @@ Precondition:       1 < len(data) <= 1000
 
 def my_solution(data):
     sorted_data = sorted(data)
-    return sorted_data[len(data) / 2] if len(data) % 2 != 0 else (sorted_data[len(data) / 2 - 1] +
-                                                                  sorted_data[len(data) / 2]) / 2.0
+    return sorted_data[len(data) / 2] if len(data) % 2 else (sorted_data[len(data) / 2 - 1] +
+                                                             sorted_data[len(data) / 2]) / 2.0
 
 
 def radekj_solution(data):
