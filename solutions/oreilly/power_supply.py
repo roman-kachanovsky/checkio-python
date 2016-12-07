@@ -19,27 +19,23 @@ Precondition:   required
 
 
 def my_solution(network, power_plants):
-    def find_shortest_path(graph, start, end):
-        def find_all_paths(g, s, e, p):
-            p = p + [s]
+    def find_shortest_path(g, s, e, p):
+        p = p + [s]
 
-            if s == e:
-                return [p]
+        if s == e:
+            return p
 
-            if s not in graph.keys():
-                return []
+        if s not in g.keys():
+            return None
 
-            paths = []
+        shortest = None
 
-            for n in graph[s]:
-                if n not in p:
-                    new_paths = find_all_paths(g, n, e, p)
-                    for np in new_paths:
-                        paths.append(np)
-            return paths
-
-        all_paths = find_all_paths(graph, start, end, [])
-        return sorted(all_paths, key=len)[0] if all_paths else []
+        for n in g[s]:
+            if n not in p:
+                new_path = find_shortest_path(g, n, e, p)
+                if new_path and (not shortest or len(new_path) < len(shortest)):
+                    shortest = new_path
+        return shortest
 
     all_points = {n for subnet in network for n in subnet}
     cities = all_points - set(power_plants.keys())
@@ -49,7 +45,7 @@ def my_solution(network, power_plants):
 
     for plant, supply_range in power_plants.items():
         for city in cities:
-            path = find_shortest_path(supply_graph, city, plant)
+            path = find_shortest_path(supply_graph, city, plant, [])
 
             if path and len(path) - 1 <= supply_range:
                 covered_cities.append(city)
