@@ -58,5 +58,6 @@ def my_solution(polygon, point):
 
     return inside
 
-# TODO: Check most clear solution here:
+
+# TODO: Investigate most clear solution here:
 # https://py.checkio.org/mission/inside-block/publications/category/clear/
