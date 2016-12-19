@@ -62,7 +62,7 @@ def my_solution(dictionary):
             if v and isinstance(v, dict):
                 stack.append((path + (k, ), v))
             else:
-                result["/".join((path + (k, )))] = v or ''
+                result['/'.join((path + (k, )))] = v or ''
     return result
 
 
