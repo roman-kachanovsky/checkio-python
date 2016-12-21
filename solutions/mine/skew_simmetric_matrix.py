@@ -21,7 +21,7 @@ Precondition:       0 < N < 5
 
 
 def my_solution(m):
-    return all(m[i][j] == -m[j][i] or (i == j and not m[i][j]) for i in xrange(len(m)) for j in xrange(len(m)))
+    return all(m[i][j] == -m[j][i] for i in xrange(len(m)) for j in xrange(len(m)) if i >= j)
 
 
 # TODO: Investigate most clear solution here:
