@@ -21,8 +21,11 @@ Precondition:       0 < N < 5
 
 
 def my_solution(m):
-    return all(m[i][j] == -m[j][i] for i in xrange(len(m)) for j in xrange(len(m)) if i >= j)
+    return all(m[i][j] == -m[j][i] for i in xrange(len(m)) for j in xrange(i + 1))
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/skew-symmetric-matrix/publications/category/clear/
+makoto_yamagata_solution = lambda m: (m == [[-x for x in row] for row in list(zip(*m))])
+
+
+def gyahun_dash_solution(matrix):
+    return matrix == [[-element for element in row] for row in zip(*matrix)]
