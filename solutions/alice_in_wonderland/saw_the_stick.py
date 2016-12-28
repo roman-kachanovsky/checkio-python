@@ -57,5 +57,12 @@ def my_solution(number):
     return sorted(result, key=len)[-1] if result else []
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/stick-sawing/publications/category/clear/
+def coells_solution(jose_jalapeno):
+    m, n = 0, jose_jalapeno
+    while m < n:
+        m += 1
+        k = jose_jalapeno * 6 + m * (m * m - 1)
+        n = round(k ** (1/3))
+        if k == n * (n * n - 1):
+            return [i * (i + 1) // 2 for i in range(m, n)]
+    return []

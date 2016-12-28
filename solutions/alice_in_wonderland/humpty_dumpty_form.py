@@ -59,7 +59,3 @@ def my_solution(height, width):
         area = 2 * math.pi * (a ** 2) * (1 + c / (a * e) * math.asin(e))
 
     return [round(volume, 2), round(area, 2)]
-
-
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/humpty-dumpty/publications/category/clear/

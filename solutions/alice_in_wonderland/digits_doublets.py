@@ -53,5 +53,37 @@ def my_solution(numbers):
     return sorted(chains, key=len)[0] if chains else []
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/digits-doublets/publications/category/clear/
+def veky_solution(numbers):
+    import collections, operator
+
+    q, v = collections.deque({numbers.pop()}), {}
+
+    while q:
+        t = q.popleft()
+
+        if t == numbers[0]:
+            result = []
+
+            while True:
+                result.append(t)
+                try:
+                    t = v[t]
+                except KeyError:
+                    return result
+
+        for u in numbers:
+            if sum(map(operator.ne, str(t), str(u))) <= 1 and u not in v:
+                v[u] = t
+                q.append(u)
+
+
+def amachua_solution(numbers):
+    distance = lambda a, b: sum([a[i] != b[i] for i in range(len(a))])
+    paths = [[numbers.pop(0)]]
+
+    while paths:
+        current = paths.pop(0)
+        for i in range(len(numbers) - 1, -1, -1):
+            if distance(str(numbers[i]), str(current[-1])) != 1: continue
+            if numbers[i] == numbers[-1]: return current+[numbers[-1]]
+            paths.append(current+[numbers.pop(i)])

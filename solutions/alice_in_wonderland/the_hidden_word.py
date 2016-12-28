@@ -49,5 +49,18 @@ def my_solution(text, word):
             return [c.index(word) + 1, k, c.index(word) + len(word), k]
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/hidden-word/publications/category/clear/
+def veky_solution(text, word):
+    import itertools
+
+    lines = text.replace(" ", "").lower().splitlines()
+    columns = map("".join, itertools.izip_longest(*lines, fillvalue=" "))
+
+    def scan(lines, reform):
+        for i, line in enumerate(lines, 1):
+            try:
+                j = line.index(word.lower())
+            except ValueError:
+                continue
+            return [(i, j + 1, j + len(word))[int(k)] for k in reform]
+
+    return scan(lines, "0102") or scan(columns, "1020")

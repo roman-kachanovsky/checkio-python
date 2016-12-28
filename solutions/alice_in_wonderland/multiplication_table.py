@@ -41,5 +41,23 @@ def my_solution(first, second):
         sum([int(''.join(map(lambda n: str(int(m) ^ int(n)), snd)), 2) for m in fst])
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/multiplication-table/publications/category/clear/
+def pohmelie_solution(f, s):
+    from operator import and_, or_, xor
+
+    res = 0
+
+    while f:
+        for op in (and_, or_, xor):
+            res += op(s, ((1 << s.bit_length()) - 1) * (f & 1))
+        f >>= 1
+    return res
+
+
+def yukirin_solution(first, second, result=0):
+    from operator import or_, and_, xor
+
+    first = [int(c) for c in bin(first)[2:]]
+    second = [int(c) for c in bin(second)[2:]]
+    for ope in and_, or_, xor:
+        result += sum(int(''.join(str(ope(x, y)) for y in second), 2) for x in first)
+    return result

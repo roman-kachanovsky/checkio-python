@@ -61,5 +61,15 @@ def my_solution(cakes):
     return len(rows) - len(immersed_rows)
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/cakes-rows/publications/review/clear/
+def nickie_solution(cakes):
+    from itertools import combinations
+
+    def L(x, y, z):  # Checks if three points are colinear
+        return (y[0] - x[0]) * (z[1] - x[1]) == (y[1] - x[1]) * (z[0] - x[0])
+
+    rows = set()
+    for p, q in combinations(cakes, 2):
+        colinear = frozenset(tuple(r) for r in cakes if L(p, q, r))
+        if len(colinear) > 2:
+            rows.add(colinear)
+    return len(rows)
