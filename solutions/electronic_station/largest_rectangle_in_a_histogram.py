@@ -23,5 +23,9 @@ def my_solution(histogram):
     return max(res)
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/largest-histogram/publications/category/clear/
+def mof_solution(h):
+    result = min(h) * len(h)
+    for w in range(1, len(h)):
+        for i in range(len(h) - w + 1):
+            result = max(result, min(h[i:i + w]) * w)
+    return result

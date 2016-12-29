@@ -65,5 +65,20 @@ def my_solution(chain):
     return len(sorted(results, key=len)[0])
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/break-rings/publications/category/clear/
+def sim0000_solution(rings):
+    from itertools import combinations
+
+    uniq_rings = set.union(*rings)
+    for n in range(1, len(uniq_rings)):
+        for destroy in combinations(uniq_rings, n):
+            if all(ring & set(destroy) for ring in rings):
+                return n
+
+
+from itertools import product
+veky_solution = lambda rings: min(len(set(cuts)) for cuts in product(*rings))
+
+
+def gyahun_dash_solution(rings):
+    from itertools import product
+    return min(map(len, map(set, product(*rings))))

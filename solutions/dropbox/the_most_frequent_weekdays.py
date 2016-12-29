@@ -34,5 +34,26 @@ def my_solution(year):
     return [day_name[i] for i, d in enumerate(weekday_rates) if d == max(weekday_rates)]
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/the-most-frequent-weekdays/publications/category/clear/
+def siebenschlaefer_solution(year):
+    import calendar
+
+    weekdays = [calendar.weekday(year, 1, 1)]
+    if calendar.isleap(year):
+        weekdays.append(calendar.weekday(year, 1, 2))
+    return [calendar.day_name[i] for i in sorted(weekdays)]
+
+
+def gyahun_dash_solution(year):
+    from calendar import day_name, isleap, weekday
+
+    days = (weekday(year, 1, 1 + i) for i in range(1 + isleap(year)))
+    return [day_name[d] for d in sorted(days)]
+
+
+def fpob_solution(year):
+    import datetime, calendar
+
+    days = [datetime.date(year, 1, 1)]
+    if calendar.isleap(year):
+        days.append(datetime.date(year, 1, 2))
+    return [d.strftime("%A") for d in sorted(days, key=lambda d: d.weekday())]

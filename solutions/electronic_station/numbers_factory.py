@@ -52,5 +52,10 @@ def my_solution(number):
     return int(''.join(str(i) for i in res[::-1]))
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/number-factory/publications/category/clear/
+def makoto_yamagata_solution(data):
+    fs = []
+    for p in xrange(9, 1, -1):
+        while bool(data) and ((data % p) == 0):
+            fs += [str(p)]
+            data /= p
+    return int(''.join(sorted(fs)), 10) if (data == 1) else 0

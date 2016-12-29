@@ -59,5 +59,20 @@ def my_solution(polygon, point):
     return inside
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/inside-block/publications/category/clear/
+def diz_solution(polygon, point):
+    inside, n, (x, y) = 0, len(polygon), point
+
+    for p1, p2 in zip(polygon, polygon[1:] + polygon):
+        (p1x, p1y), (p2x, p2y) = p1, p2
+
+        if p1 == point:
+            return True
+
+        if y == p1y == p2y and min(p1x, p2x) < x < max(p1x, p2x) \
+                or x == p1x == p2x and min(p1y, p2y) < y < max(p1y, p2y):
+            return True
+
+        if min(p1y, p2y) < y <= max(p1y, p2y) and x <= max(p1x, p2x):
+            inside += (y-p1y)*(p2x-p1x) / (p2y-p1y + 1e-9) + p1x >= x
+
+    return inside % 2

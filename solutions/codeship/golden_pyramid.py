@@ -67,5 +67,19 @@ def my_solution(pyramid):
     return find_path_with_biggest_weight(graph, (0, 0), [])[1]
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/golden-pyramid/publications/category/clear/
+def gyahun_dash_solution(pyramid):
+    def integrate(lowerline, upperline):
+        def sum_triangle(top, left, right):
+            return top + max(left, right)
+
+        return list(map(sum_triangle, upperline, lowerline, lowerline[1:]))
+
+    return reduce(integrate, reversed(pyramid)).pop()
+
+
+def zero_loss_solution(pyramid):
+    py = [list(i) for i in pyramid]
+    for i in reversed(range(len(py) - 1)):
+        for j in range(i + 1):
+            py[i][j] += (max(py[i + 1][j], py[i + 1][j + 1]))
+    return py[0][0]

@@ -54,5 +54,21 @@ def my_solution(f, g):
     return h
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/comp_funcs/publications/category/clear/
+def diz_solution(*funcs):
+    def helper(*args, **kwargs):
+        output = None
+        status = 'same'
+        for i, f in enumerate(funcs, ord('f')):
+            try:
+                result = f(*args, **kwargs)
+            except:
+                result = None
+
+            if result is None:
+                status = [chr(i), 'both']['error' in status] + '_error'
+            elif output is None:
+                output = result
+            elif result != output:
+                status = 'different'
+        return output, status
+    return helper
