@@ -100,5 +100,29 @@ def my_solution(message):
     return filter(lambda x: words_avg[x] == max(words_avg.values()), words_avg)[-1]
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/gate-puzzles/publications/category/clear/
+def gyahun_dash_solution(message):
+    import re
+
+    def getscore(word1, word2):
+        first = 10 if word1[0] == word2[0] else 0
+        last = 10 if word1[-1] == word2[-1] else 0
+        length = 30 * min(len(word1) / len(word2), len(word2) / len(word1))
+        unique = 50 * len(set(word1) & set(word2)) / len(set(word1) | set(word2))
+        return first + last + length + unique
+
+    words = re.findall('[a-z]+', message.lower())[::-1]
+    return max(words, key=lambda w: sum(getscore(w, x) for x in words))
+
+
+def sim0000_solution(message):
+    def f(s1, s2):
+        point = 10 * ((s1[0] == s2[0]) + (s1[-1] == s2[-1]))
+        point += 30 * min(len(s1), len(s2)) / max(len(s1), len(s2))
+        point += 50 * len(set(s1) & set(s2)) / len(set(s1 + s2))
+        return point
+
+    m = ''.join(c if c.islower() else ' ' for c in message.lower()).split()
+    score = {}
+    for i, w1 in enumerate(m):
+        score[i] = sum(f(w1, w2) for j, w2 in enumerate(m) if i != j)
+    return m[max(reversed(range(len(m))), key=score.get)]

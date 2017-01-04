@@ -53,5 +53,30 @@ def my_solution(network, power_plants):
     return cities - set(covered_cities)
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/power-supply/publications/category/clear/
+def sim0000_solution(networks, power_plants):
+    from collections import deque
+
+    net = [set(link) for link in networks]
+    result = set.union(*net)
+    for supply in power_plants:
+        q = deque([(supply, power_plants[supply])])
+        powered = set()
+        while q:
+            s, d = q.popleft()
+            if s in powered or d < 0: continue
+            powered |= {s}
+            q.extend(((link - {s}).pop(), d - 1) for link in net if s in link)
+        result -= powered
+    return sorted(result)
+
+
+def gyahun_dash_solution(network, plants):
+    connections = tuple(map(set, network))
+    cities = set.union(*connections)
+
+    for plant, power in plants.items():
+        supplied = {plant}
+        for distance in range(power):
+            supplied.update(*filter(supplied.intersection, connections))
+        cities -= supplied
+    return list(cities)

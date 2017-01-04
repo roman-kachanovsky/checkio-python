@@ -40,5 +40,6 @@ def my_solution(data):
     return [rows.index(min(rows)), cols.index(min(cols))]
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/weak-point/publications/category/clear/
+def bertrandbordage_solution(matrix):
+    rows, cols = map(sum, matrix), map(sum, zip(*matrix))
+    return rows.index(min(rows)), cols.index(min(cols))

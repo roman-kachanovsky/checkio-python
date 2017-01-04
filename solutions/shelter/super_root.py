@@ -45,5 +45,23 @@ def my_solution(number):
     return x
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/super-root/publications/category/clear/
+def gyahun_dash_solution(number):
+    from math import log, log10
+
+    x = log10(number) + 1
+
+    while True:
+        y = x ** x
+        diff = y - number
+        if abs(diff) < 0.001:
+            return x
+        x -= diff / (y * (1 + log(x)))
+
+
+def gyahun_dash_solution_v2(number, lower=1, upper=10):
+    while True:
+        x = (lower + upper) / 2
+        diff = x ** x - number
+        if abs(diff) < 0.001:
+            return x
+        lower, upper = (lower, x) if diff > 0 else (x, upper)

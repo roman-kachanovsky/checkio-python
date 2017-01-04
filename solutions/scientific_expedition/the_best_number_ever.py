@@ -36,7 +36,3 @@ def my_solution(n):
             Decimal(1) / (8 * k + 6)) for k in xrange(precision))
 
     return pi(n)
-
-
-# TODO: Investigate most creative solutions here:
-# https://py.checkio.org/mission/the-best-number-ever/publications/review/puzzle/

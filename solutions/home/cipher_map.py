@@ -55,5 +55,13 @@ def my_solution(grille, text):
     return result
 
 
-# TODO: Investigate most clear solutions here:
-# https://py.checkio.org/mission/cipher-map2/publications/category/clear/
+def veky_solution(grill, cypher):
+    password = ''
+    for _ in grill:
+        for grill_row, cypher_row in zip(grill, cypher):
+            for grill_letter, cypher_letter in zip(grill_row, cypher_row):
+                if grill_letter == 'X':
+                    password += cypher_letter
+        row1, row2, row3, row4 = grill
+        grill = tuple(zip(row4, row3, row2, row1))
+    return password

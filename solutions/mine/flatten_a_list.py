@@ -32,5 +32,6 @@ def my_solution(a):
     return eval('[' + str(a).replace('[', '').replace(']', '') + ']')
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/flatten-list/publications/category/clear/
+fantakeshi_solution = lambda a: eval('[' + str(a).replace('[', '').replace(']', '') + ']')
+
+diz_solution = f = lambda d: [d] if int == type(d) else sum(map(f, d), [])

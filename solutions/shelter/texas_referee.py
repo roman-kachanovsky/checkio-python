@@ -150,5 +150,52 @@ def my_solution(cards_str):
     return ','.join(strong_hands[0])
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/texas-referee/publications/category/clear/
+def sim0000_solution(cards_str):
+    from itertools import combinations
+    from collections import Counter
+
+    STRAIGHT_FLUSH = 8  # why python doesn't have enum?
+    FOUR_OF_KIND = 7
+    FULL_HOUSE = 6
+    FLUSH = 5
+    STRAIGHT = 4
+    THREE_OF_KIND = 3
+    TWO_PAIR = 2
+    ONE_PAIR = 1
+    HIGH_CARD = 0
+
+    def calc_hand(cards):
+        flush = all(c[1] == cards[0][1] for c in cards)
+        sorted_cards = sorted(cards, reverse=True)
+        straight = all(sorted_cards[i][0] == sorted_cards[i + 1][0] + 1 for i in range(4))
+        ranks_count = Counter(c[0] for c in cards).most_common(2)
+        rank1, count1 = ranks_count[0]
+        rank2, count2 = ranks_count[1]
+
+        sorted_by_rank1 = lambda x:(x[0]+20, x[1]) if x[0] == rank1 else x
+        sorted_by_rank12 = lambda x:(x[0]+40, x[1]) if x[0] == rank1 else (x[0]+20, x[1]) if x[0] == rank2 else x
+
+        if straight and flush:
+            hand, sort_rule = STRAIGHT_FLUSH, None
+        elif count1 == 4:
+            hand, sort_rule = FOUR_OF_KIND, sorted_by_rank1
+        elif (count1, count2) == (3, 2):
+            hand, sort_rule = FULL_HOUSE, sorted_by_rank1
+        elif flush:
+            hand, sort_rule = FLUSH, None
+        elif straight:
+            hand, sort_rule = STRAIGHT, None
+        elif count1 == 3:
+            hand, sort_rule = THREE_OF_KIND, sorted_by_rank1
+        elif count1 == count2 == 2:
+            rank1, rank2 = max(rank1, rank2), min(rank1, rank2)
+            hand, sort_rule = TWO_PAIR, sorted_by_rank12
+        elif count1 == 2:
+            hand, sort_rule = ONE_PAIR, sorted_by_rank1
+        else:
+            hand, sort_rule = HIGH_CARD, None
+        return hand, sorted(cards, key=sort_rule, reverse=True)
+
+    cards = [(RANKS.find(s[0]), SUITS.find(s[1])) for s in cards_str.split(',')]
+    max_cards = max((c for c in combinations(cards, 5)), key=calc_hand)
+    return ','.join(RANKS[c[0]] + SUITS[c[1]] for c in sorted(max_cards, reverse=True))

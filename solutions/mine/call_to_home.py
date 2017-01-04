@@ -50,5 +50,20 @@ def my_solution(calls):
     return sum([100 + (k - 100) * 2 if k >= 100 else k for k in minutes])
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/calls-home/publications/category/clear/
+def sim0000_solution(calls):
+    from collections import Counter
+
+    db = Counter()
+    for call in calls:
+        day, time, duration = call.split()
+        db[day] += (int(duration) + 59) // 60
+    return sum(min if min < 100 else 2 * min - 100 for min in db.values())
+
+
+def saklar13_solution(calls):
+    days = {}
+    for call in calls:
+        day, _, duration = call.split()
+        duration = (int(duration) + 59) // 60
+        days[day] = days.get(day, 0) + duration
+    return sum(max(x, x * 2 - 100) for x in days.values())

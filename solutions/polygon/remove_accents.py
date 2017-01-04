@@ -25,5 +25,6 @@ def my_solution(msg):
     return u''.join(c for c in normalize('NFKD', msg) if category(c)[0] in 'LZPS')
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/remove-accents/publications/category/clear/
+def gyahun_dash_solution(string):
+    from unicodedata import category, normalize
+    return u''.join(c for c in normalize('NFKD', string) if category(c) != 'Mn')

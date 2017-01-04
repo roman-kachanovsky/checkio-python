@@ -52,5 +52,22 @@ def my_solution(marbles, step):
     return round(float(sum(s.values()[0] for s in sequences[-1])), 2)
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/box-probability/publications/category/clear/
+def nooodl_solution(marbles, step):
+    def p(white, black, step):
+        pwhite = float(white) / (white + black)
+        pblack = 1.0 - pwhite
+
+        if step == 1:
+            return pwhite
+        else:
+            p1 = p(white - 1, black + 1, step - 1) * pwhite
+            p2 = p(white + 1, black - 1, step - 1) * pblack
+            return p1 + p2
+    return p(marbles.count('w'), marbles.count('b'), step)
+
+
+def nickie_solution(pearls, N):
+    P = len(pearls)
+    C = sum(1 for p in pearls if p == 'w')
+    r = (1 - (1 - 2 * C // P) * (1 - 2 // P) ** (N - 1)) / 2
+    return round(r, 2)

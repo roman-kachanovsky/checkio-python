@@ -33,7 +33,7 @@ def my_solution():
         list_of_combinations = product(string.ascii_letters + ' ' + '!',
                                        repeat=count_of_symbols)
 
-        list_of_combinations = [list('I love Python!'), ]  # TODO: Comment this line for true search
+        list_of_combinations = [list('I love Python!'), ]  # Comment this line for true search
 
         for c in list_of_combinations:
             phrase = ''.join(c)
