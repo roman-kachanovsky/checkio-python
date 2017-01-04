@@ -113,5 +113,27 @@ def my_solution(data):
     return predict_state(data)
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/black-holes/publications/category/clear/
+def diz_solution(data):
+    from itertools import combinations as c
+    from cmath import pi, acos, sqrt
+
+    space = list(map(list, data))
+
+    def distance(u, v):
+        return abs(complex(*u[:2]) - complex(*v[:2])) + 1e-9
+
+    def intersection(d, r1, r2):
+        a = r1 ** 2 * acos((d ** 2 + r1 ** 2 - r2 ** 2) / (2 * r1 * d)) + \
+            r2 ** 2 * acos((d ** 2 + r2 ** 2 - r1 ** 2) / (2 * r2 * d)) - \
+            sqrt((r1 + r2 - d) * (r1 + d - r2) * (r2 + d - r1) * (d + r1 + r2)) / 2
+        return a.real
+
+    while 1:
+        for d, a, b in sorted((distance(u, v), u, v) for u, v in c(space, 2)):
+            (rs, s), (rb, b) = sorted((n[2], n) for n in (a, b))
+            if rb ** 2 / 1.2 >= rs ** 2 <= intersection(d, rs, rb) / pi / .55:
+                b[2] = abs(rs + 1j * rb)
+                space.remove(s)
+                break
+        else:
+            return space

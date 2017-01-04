@@ -55,5 +55,10 @@ def my_solution(previous):
     return [5, 3]
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/ore-in-the-desert/publications/category/clear/
+def bryukh_solution(data):
+    from math import hypot
+
+    cells = [[i, j] for i in range(10) for j in range(10)]
+    for x, y, d in data[-1:]:
+        cells = [[i, j] for i, j in cells if round(hypot(x - i, y - j), 0) == d]
+    return cells[0]

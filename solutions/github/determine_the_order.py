@@ -37,5 +37,34 @@ def my_solution(data):
     return result
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/determine-the-order/
+def gyahun_dash_solution(strings):
+    def topological_sorting(vertices, edges):
+        starts = {v for v in vertices if not any(e.endswith(v) for e in edges)}
+
+        if not starts:
+            raise StopIteration
+
+        first = min(starts)
+        yield first
+
+        passed = {edge for edge in edges if edge.startswith(first)}
+        candidates = starts.difference(first) | {edge[1] for edge in passed}
+        for i in topological_sorting(candidates, edges - passed):
+            yield i
+
+    edges = {p + q for s in strings for p, q in zip(s, s[1:]) if p != q}
+    return ''.join(topological_sorting({s[0] for s in strings}, edges))
+
+
+def sim0000_solution(data):
+    alphabet = sorted(set(''.join(data)))
+    result = ''
+    for n in range(len(alphabet)):
+        for c in alphabet:
+            if c in result:
+                continue
+            if all(c not in word or c == word[0] for word in data):
+                break
+        result += c
+        for i in range(len(data)): data[i] = data[i].replace(c, '')
+    return result

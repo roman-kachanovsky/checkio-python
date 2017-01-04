@@ -34,5 +34,12 @@ def my_solution(data):
     return curr_min
 
 
-# TODO: Investigate most clear solution here:
-# https://py.checkio.org/mission/loading-cargo/publications/category/clear/
+def takapt0226_solution(data):
+    dp = {0}
+    for i in data:
+        ndp = set()
+        for diff in dp:
+            ndp.add(abs(i - diff))
+            ndp.add(abs(i + diff))
+        dp = ndp
+    return min(dp)
