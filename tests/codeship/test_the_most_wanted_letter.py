@@ -16,6 +16,5 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(my_solution('a' * 9000 + 'b' * 1000), 'a')
 
 
-
 if __name__ == '__main___':
     unittest.main()
